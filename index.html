@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Garagem Nove</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <span class="placa">GARAGEM 9</span>
+  <nav>
+    <a href="#estoque">Estoque</a>
+    <a href="#carrinho">Carrinho</a>
+    <a href="#mensagem">Mensagem</a>
+    <a href="#avisos">Avisos</a>
+    <a href="#equipe">Equipe</a>
+  </nav>
+</header>
+
+<main>
+  <section id="cadastro">
+    <h2>Cadastro do cliente</h2>
+    <form onsubmit="cadastrar(); return false">
+      <input id="c-nome" placeholder="Nome" required>
+      <input id="c-email" type="email" placeholder="E-mail" required>
+      <input id="c-tel" placeholder="Telefone" required>
+      <button>Cadastrar</button>
+    </form>
+    <p id="ola"></p>
+  </section>
+
+  <section id="estoque">
+    <h2>Estoque</h2>
+    <div class="filtros" onchange="mostrarCarros()">
+      <select id="f-tipo"><option value="">Carroceria</option><option>Hatch</option><option>Sedan</option><option>SUV</option><option>Picape</option></select>
+      <select id="f-cor"><option value="">Cor</option><option>Vermelho</option><option>Preto</option><option>Branco</option><option>Prata</option><option>Azul</option><option>Cinza</option></select>
+      <input id="f-ano" type="number" placeholder="Ano a partir de">
+      <input id="f-km" type="number" placeholder="Km até">
+      <input id="f-op" placeholder="Opcional (ex: teto solar)">
+    </div>
+    <div id="lista" class="lista"></div>
+  </section>
+
+  <section id="carrinho">
+    <h2>Carrinho e pagamento</h2>
+    <div id="itens"></div>
+    <select id="forma" onchange="mostrarCarrinho()">
+      <option value="avista">À vista</option>
+      <option value="parcelado">Parcelado no cartão</option>
+      <option value="financiamento">Financiamento</option>
+      <option value="loja">Pagar na loja</option>
+    </select>
+    <p id="resumo"></p>
+    <button onclick="finalizar()">Finalizar pedido</button>
+  </section>
+
+  <section id="mensagem">
+    <h2>Mensagem para a equipe</h2>
+    <select id="msg-carro" onchange="mostrarConversa()"></select>
+    <div id="conversa"></div>
+    <textarea id="msg-texto" rows="3" placeholder="Escreva sua pergunta"></textarea>
+    <button onclick="enviarMensagem()">Enviar</button>
+  </section>
+
+  <section id="avisos">
+    <h2>Avisos</h2>
+    <div id="lista-avisos"></div>
+  </section>
+
+  <section id="equipe">
+    <h2>Equipe: cadastrar veículo</h2>
+    <form onsubmit="adicionarCarro(); return false">
+      <input id="e-nome" placeholder="Modelo" required>
+      <select id="e-tipo"><option>Hatch</option><option>Sedan</option><option>SUV</option><option>Picape</option></select>
+      <select id="e-cor"><option>Vermelho</option><option>Preto</option><option>Branco</option><option>Prata</option><option>Azul</option><option>Cinza</option></select>
+      <input id="e-ano" type="number" placeholder="Ano" required>
+      <input id="e-km" type="number" placeholder="Quilometragem" required>
+      <input id="e-preco" type="number" placeholder="Preço" required>
+      <input id="e-op" placeholder="Opcionais, separados por vírgula">
+      <button>Publicar</button>
+    </form>
+    <h3>Veículos no estoque</h3>
+    <div id="equipe-carros"></div>
+    <h3>Mensagens dos clientes</h3>
+    <div id="equipe-msgs"></div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
