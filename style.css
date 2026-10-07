@@ -15,7 +15,7 @@ button { background: #10222f; color: #fff; border: 0; border-radius: 4px; cursor
 .lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
 .carro { border: 1px solid #b9c4cc; padding: 12px; }
 .carro h3 { margin: 8px 0 4px; }
-.foto { height: 60px; border-radius: 4px; }
+.foto { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
 
 /* preço no formato de etiqueta amarela */
 .preco { background: #f1c232; padding: 2px 12px; font-weight: bold; display: inline-block; margin: 6px 6px 6px 0; }
